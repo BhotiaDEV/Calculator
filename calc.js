@@ -5,13 +5,16 @@ buttons.forEach((button) => {
     if (e.target.innerHTML == "=") {
       string = eval(string);
       document.querySelector("input").value = string;
+      string = "";
+    } else if (e.target.innerHTML == "C" || e.target.innerHTML == "CE") {
+      document.querySelector("input").value = "";
+      string = "";
+    } else if (e.target.innerHTML == "DEL") {
+      string = string.substring(0, string.length - 1);
+      document.querySelector("input").value = string;
     } else {
       string = string + e.target.innerHTML;
       document.querySelector("input").value = string;
-    }
-    if (e.target.innerHTML == "C" || e.target.innerHTML == "CE") {
-      document.querySelector("input").value = "";
-      string = "";
     }
   });
 });
